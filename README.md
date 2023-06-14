@@ -6,7 +6,7 @@ This repo contains training and evaluation code for the following paper:
 
 > [**Iterative Filter Adaptive Network for Simple Lens Imaging System**]
 >  
-> *Optics Communication
+> *Optics Communication <In the delivery>
 
 
 <p align="left">
