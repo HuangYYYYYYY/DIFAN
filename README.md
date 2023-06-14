@@ -10,7 +10,6 @@ This repo contains training and evaluation code for the following paper:
 
 
 <p align="left">
-  <a href="https://junyonglee.me/projects/IFAN">
     <img width=85% src="./assets/DIFAN .png"/>
   </a><br>
 </p>
