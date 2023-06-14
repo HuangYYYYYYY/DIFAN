@@ -26,7 +26,7 @@ This repo contains training and evaluation code for the following paper:
 #### 1. Environment setup
 * Option 1. install from scratch
     ```bash
-    $ git clone https://github.com/codeslake/IFAN.git
+    $ git clone https://github.com/codeslake/DIFAN.git
     $ cd DIFAN
 
     ## for CUDA11.7
@@ -40,24 +40,24 @@ This repo contains training and evaluation code for the following paper:
 
 * Option 2. docker
     ```bash
-    $ nvidia-docker run --privileged --gpus=all -it --name DIFAN --rm codeslake/IFAN /bin/hy
+    $ nvidia-docker run --privileged --gpus=all -it --name DIFAN --rm codeslake/DIFAN /bin/hy
     $ git clone https://github.com/codeslake/DIFAN.git
     $ cd IFAN
 
     # for CUDA11.1
-    $ coda activate IFAN_CUDA11.1
+    $ coda activate DIFAN_CUDA11.1
 
     # for CUDA11.3 (for amp)
-    $ coda activate IFAN_CUDA11.3 
+    $ coda activate DIFAN_CUDA11.3 
     
    # for CUDA11.7 
-    $ coda activate IFAN_CUDA11.7
+    $ coda activate DIFAN_CUDA11.7
     ```
 
 #### 2. Datasets
 Download and unzip datasets under `[DATASET_ROOT]`:
 * DPDD dataset: [Google Drive](https://drive.google.com/open?id=1Mq7WtYMo9mRsJ6I6ccXdY1JJQvwBuMuQ&authuser=codeslake%40gmail.com&usp=drive_fs) | [Dropbox](https://www.dropbox.com/s/w9urn5m4mzllrwu/DPDD.zip?dl=1)
-* DPDD-SL dataset:
+* DPDD-SL dataset:[Baidu Netdisk](https://pan.baidu.com/s/1vPvlQBEc5M0jlI3GZ9MtoQ?pwd=76lp 提取码：76lp) | [Dropbox](https://www.dropbox.com/scl/fo/0mm6ziav4mfn4k8sm7ay1/h?dl=0&rlkey=p7i7qrxfmz19vbr4xd3f0hhmo)
 
 ```
 [DATASET_ROOT]
@@ -67,15 +67,16 @@ Download and unzip datasets under `[DATASET_ROOT]`:
 > `[DATASET_ROOT]` can be modified with [`config.data_offset`](https://github.com/codeslake/IFAN/blob/main/configs/config.py#L48-L49) in `./configs/config.py`.
 
 #### 3. Pre-trained models
-Download and unzip pretrained weights ([Google Drive](https://drive.google.com/open?id=1MnoyTZgHgG7vwZYuloLeQgegwa6O9A7O&authuser=codeslake%40gmail.com&usp=drive_fs) | [Dropbox](https://www.dropbox.com/s/y2s8pmukgzkqpky/DIFAN_TEST.pytorch?dl=0) under `./ckpt/`:
+Download and unzip pretrained weights ([Baidu Netdisk](https://pan.baidu.com/s/1Jd2VfnbfVHuZaOip4DYN9Q?pwd=z7jd 
+提取码：z7jd) | [Dropbox]([https://www.dropbox.com/s/y2s8pmukgzkqpky/DIFAN_TEST.pytorch?dl=0](https://www.dropbox.com/s/y2s8pmukgzkqpky/DIFAN_TEST.pytorch?dl=0)) under `./ckpt/`:
 
 ```
 .
 ├── ...
 ├── ./ckpt
-│   ├── IFAN.pytorch
+│   ├── DIFAN.pytorch
 │   ├── ...
-│   └── IFAN_dual.pytorch
+│   
 └── ...
 ```
 
@@ -84,30 +85,20 @@ Download and unzip pretrained weights ([Google Drive](https://drive.google.com/o
 ```shell
 ## Table 2 in the main paper
 # Our final model used for comparison
- python run.py --mode IFAN --network IFAN --config config_IFAN --data DBCI --ckpt_abs_name ckpt/IFAN_03220.pytorch --data_offset ./DATASET_ROOT --output_offset ./output
+ python run.py --mode DIFAN --network DIFAN --config config_DIFAN --data DPDD-SL --ckpt_abs_name ckpt/DIFAN_TEST.pytorch --data_offset ./DATASET_ROOT --output_offset ./output
 
+> Testing results will be saved in `[LOG_ROOT]/2023/[mode]/result/quanti_quali/[mode]_[epoch]/[data]/`.
 
-  python run.py --mode IFAN --network IFAN --config config_IFAN --data DPDD --ckpt_abs_name ckpt/IFAN.pytorch --data_offset /data_offset --output_offset ./output
-
-#
-
-> Testing results will be saved in `[LOG_ROOT]/IFAN_CVPR2021/[mode]/result/quanti_quali/[mode]_[epoch]/[data]/`.
-
-> `[LOG_ROOT]` can be modified with [`config.log_offset`](https://github.com/codeslake/IFAN/blob/main/configs/config.py#L65) in `./configs/config.py`.
+> `[LOG_ROOT]` can be modified with [`config.log_offset`]
 
 #### Options
 * `--data`: The name of a dataset to evaluate. `DPDD-SL`  `random`. Default: `DPDD-SL`
-    * The folder structure can be modified in the function [`set_eval_path(..)`](https://github.com/codeslake/IFAN/blob/main/configs/config.py#L114-L139) in `./configs/config.py`.
+    * The folder structure can be modified in the function [`set_eval_path(..)`]
     * `random` is for testing models with any images, which should be placed as `[DATASET_ROOT]/random/*.[jpg|png]`.
-
-## Wiki
-* [Logging](https://github.com/codeslake/IFAN/wiki/Log-Details)
-* [Training and testing details](https://github.com/codeslake/IFAN/wiki/Training-&-Testing-Details).
 
 ## Contact
 Open an issue for any inquiries.
 You may also have contact with (e-mail:huang2020bit@163.com)
-
 
 ## Citation
 If you find this code useful, please consider citing:
