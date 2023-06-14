@@ -4,7 +4,7 @@ Simple Lens Imaging ,Large-FOV
 
 This repo contains training and evaluation code for the following paper:
 
-> [**Iterative Filter Adaptive Network for Simple Lens Imaging System**](https://junyonglee.me/projects/IFAN)<br>
+> [**Iterative Filter Adaptive Network for Simple Lens Imaging System**]
 >  
 > *Optics Communication
 
