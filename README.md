@@ -1,4 +1,4 @@
-# DIFAN
+# DIFAN for simple lens imaging system
 Simple Lens Imaging ,Large-FOV
 ## DIFAN: Iterative Filter Adaptive Network for Simple Lens Imaging System
 
@@ -6,7 +6,7 @@ This repo contains training and evaluation code for the following paper:
 
 > [**Iterative Filter Adaptive Network for Simple Lens Imaging System**]
 >  
-> *Optics Communication <In the delivery>
+> *sensor <In the delivery>
 
 
 <p align="left">
@@ -107,7 +107,7 @@ If you find this code useful, please consider citing:
 @InProceedings{DIFAN2023,
     author    = {HUANG},
     title     = {Iterative Filter Adaptive Network for Simple Lens Imaging System},
-    booktitle = {Optics Communications},
+    booktitle = {Sensor},
     year      = {2023}
 }
 ```
