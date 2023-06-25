@@ -1,10 +1,10 @@
 # DIFAN for simple lens imaging system
 Simple Lens Imaging ,Large-FOV
-## DIFAN: Iterative Filter Adaptive Network for Simple Lens Imaging System
+## DIFAN: Deep Iterative Filter Adaptive Network for Simple Lens Imaging System
 
 This repo contains training and evaluation code for the following paper:
 
-> [**Iterative Filter Adaptive Network for Simple Lens Imaging System**]
+> [**Filter Adaptive Network for Simple Lens Imaging System**]
 >  
 > *sensor <In the delivery>
 
@@ -85,6 +85,8 @@ Download and unzip pretrained weights ([Baidu Netdisk](https://pan.baidu.com/s/1
 ```shell
 ## Table 2 in the main paper
 # Our final model used for comparison
+python run.py --mode DIFAN --network DIFAN --config config_DIFAN --data test --ckpt_abs_name ckpt/DIFAN_TEST.pytorch --data_offset ./DATASET_ROOT --output_offset ./output
+
  python run.py --mode DIFAN --network DIFAN --config config_DIFAN --data DPDD-SL --ckpt_abs_name ckpt/DIFAN_TEST.pytorch --data_offset ./DATASET_ROOT --output_offset ./output
 
 > Testing results will be saved in `[LOG_ROOT]/2023/[mode]/result/quanti_quali/[mode]_[epoch]/[data]/`.
