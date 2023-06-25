@@ -59,10 +59,11 @@ def init(config, mode = 'deblur'):
     gt_file_path_list = None
 
     _, input_c_file_path_list, _ = load_file_list(config.EVAL.c_path, config.EVAL.input_path, is_flatten=True)
+
     if config.EVAL.gt_path is not None:
         _, gt_file_path_list, _ = load_file_list(config.EVAL.c_path, config.EVAL.gt_path, is_flatten=True)
 
-    return network, save_path_root_deblur, save_path_root_deblur_score, ckpt_name, input_c_file_path_list,  gt_file_path_list
+    return network, save_path_root_deblur, save_path_root_deblur_score, ckpt_name, input_c_file_path_list,gt_file_path_list
 
 def eval_quan_qual(config):
     mode = 'quanti_quali'
@@ -70,7 +71,7 @@ def eval_quan_qual(config):
     input_c_file_path_list, gt_file_path_list = init(config, mode)
 
     ##
-    time_norm = 0
+    time_norm = 0.000001
     total_itr_time = 0
 
     PSNR = 0
