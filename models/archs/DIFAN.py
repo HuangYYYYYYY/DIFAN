@@ -98,7 +98,7 @@ class Network(nn.Module):
         self.kconv4_3 = conv(ch4, ch4, kernel_size=ks, stride=1)
 
         # Add the ambiguity prediction layer bpr
-        self.bpr = nn.Sequential(
+        self.blur_predictor = nn.Sequential(
             conv(ch4, ch4, kernel_size=ks, stride=1),
             resnet_block(ch4,kernel_size=ks,res_num=res_num),
             resnet_block(ch4,kernel_size=ks,res_num=res_num),
@@ -140,7 +140,7 @@ class Network(nn.Module):
         f = self.kconv4_3(self.kconv4_2(self.kconv4_1(f)))
         # f = self.cbam4(f)
 
-        BPR = self.bpr(f)
+        BPR = self.blur_predictor(f)
         # filter predictor
         f_bpr = self.conv_bpr(BPR)
         f = self.conv4_4(torch.cat([f, f_bpr], dim=1))
