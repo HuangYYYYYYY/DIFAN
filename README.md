@@ -109,8 +109,8 @@ If you find this code useful, please consider citing:
 @InProceedings{DIFAN2023,
     author    = {HUANG},
     title     = {Iterative Filter Adaptive Network for Simple Lens Imaging System},
-    booktitle = {Sensor},
-    year      = {2023}
+    booktitle = {Advances in lasers and optoelectronics},
+    year      = {2024.5}
 }
 ```
 
